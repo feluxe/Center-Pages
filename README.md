@@ -1,3 +1,4 @@
+# Page-Aligner Chrome Extension
 
 <img src="page_aligner_animation.gif" alt="animated gif" />
 
