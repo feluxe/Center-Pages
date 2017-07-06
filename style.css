@@ -1,0 +1,15 @@
+
+.resizable {
+  background: cyan;
+  position: relative;
+}
+
+div .resizer {
+  width: 10px;
+  height: 100%;
+  background: blue;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+}
