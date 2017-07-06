@@ -18,8 +18,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="27">
-                <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <first_editor relative-caret-position="243">
+                <caret line="3" column="404" lean-forward="false" selection-start-line="3" selection-start-column="404" selection-end-line="3" selection-end-column="404" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -411,12 +411,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499272580052</updated>
-      <workItem from="1499272582556" duration="24188000" />
+      <workItem from="1499272582556" duration="25209000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24188000" />
+    <option name="totallyTimeSpent" value="25209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -575,8 +575,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="27">
-            <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <first_editor relative-caret-position="243">
+            <caret line="3" column="404" lean-forward="false" selection-start-line="3" selection-start-column="404" selection-end-line="3" selection-end-column="404" />
             <folding />
           </first_editor>
           <second_editor />
