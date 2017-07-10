@@ -1,8 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Page Aligner",
-  "description": "This extension let's you align pages in your browser",
-  "version": "0.0.0",
+  "name": "Page-Align-Center",
+  "short_name": "align-center",
+  "description": "Chrome Extension for aligning pages to the center of your screen.",
+  "version": "1.0.0",
+  "author": "Felix Meyer-Wolters",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
@@ -19,8 +21,5 @@
         "aligner.js"
       ]
     }
-  ],
-  "permissions": [
-    "activeTab"
   ]
 }
