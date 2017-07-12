@@ -6,7 +6,7 @@ function activate_page_align() {
   var contentCont = document.createElement('div');
 
   html.style.background = 'transparent';
-  contentCont.id = 'pageAlignerContentCont';
+  contentCont.id = 'resultTargetSystemCont';
   contentCont.style.background = 'transparent';
 
   while (html.hasChildNodes()) {
@@ -19,7 +19,7 @@ function activate_page_align() {
 
 function deactivate_page_align() {
   /**/
-  var contentCont = document.getElementById('pageAlignerContentCont');
+  var contentCont = document.getElementById('resultTargetSystemCont');
 
   html.style.background = '';
 
@@ -33,7 +33,7 @@ function deactivate_page_align() {
 
 function increase_padding() {
   /**/
-  var contentCont = document.getElementById('pageAlignerContentCont');
+  var contentCont = document.getElementById('resultTargetSystemCont');
   if (!contentCont) {
     activate_page_align();
     increase_padding()
@@ -52,7 +52,7 @@ function increase_padding() {
 
 function decrease_padding() {
   /**/
-  var contentCont = document.getElementById('pageAlignerContentCont');
+  var contentCont = document.getElementById('resultTargetSystemCont');
 
   if (!contentCont)
     return;
