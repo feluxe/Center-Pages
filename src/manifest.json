@@ -3,7 +3,7 @@
   "name": "Center Pages",
   "short_name": "center pages",
   "description": "Align pages to the center of your screen.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "author": "Felix Meyer-Wolters",
   "browser_action": {
     "default_icon": {
@@ -30,7 +30,8 @@
       ],
       "js": [
         "aligner.js"
-      ]
+      ],
+      "run_at": "document_end"
     }
   ]
 }

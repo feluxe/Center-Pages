@@ -1,86 +1,62 @@
+
 var html = document.getElementsByTagName('html')[0];
 
 
-function activate_page_align() {
-  /**/
-  var contentCont = document.createElement('div');
+var curPaddingNum = parseInt(localStorage.getItem('centerPagesPadding') || 0);
 
-  html.style.background = 'transparent';
-  contentCont.id = 'resultTargetSystemCont';
-  contentCont.style.background = 'transparent';
+if (curPaddingNum > 0) {
+  adjustPadding(curPaddingNum, 0)
+}
 
-  while (html.hasChildNodes()) {
-    contentCont.appendChild(html.firstChild);
+function adjustPadding(curPaddingNum, diff) {
+
+  var contentCont = document.documentElement;
+  var newPaddingNum = parseInt(curPaddingNum + diff)
+
+  if (newPaddingNum < 0) {
+    newPaddingNum = 0
   }
 
-  html.appendChild(contentCont);
+  var newPadding = newPaddingNum + 'px';
+
+  contentCont.style.borderLeft = newPadding + ' solid transparent';
+  contentCont.style.borderRight = newPadding + ' solid transparent';
+
+  localStorage.setItem('centerPagesPadding', newPaddingNum);
+
+
+}
+
+function increasePadding() {
+  /**/
+  var curPaddingNum = parseInt(localStorage.getItem('centerPagesPadding') || 0);
+  adjustPadding(curPaddingNum, 25)
+  // This is needed because of a bug with Chrome not re-rendering css immediately.
+  document.getElementsByTagName('body')[0].focus();
+
+  return curPaddingNum + 25
 }
 
 
-function deactivate_page_align() {
+function decreasePadding() {
   /**/
-  var contentCont = document.getElementById('resultTargetSystemCont');
+  var curPaddingNum = parseInt(localStorage.getItem('centerPagesPadding') || 0);
 
-  html.style.background = '';
-
-  while (contentCont.hasChildNodes()) {
-    html.appendChild(contentCont.firstChild);
-  }
-
-  html.removeChild(contentCont);
+  adjustPadding(curPaddingNum, -25)
+  // This is needed because of a bug with Chrome not re-rendering css immediately.
+  document.getElementsByTagName('body')[0].focus();
 }
 
-
-function increase_padding() {
-  /**/
-  var contentCont = document.getElementById('resultTargetSystemCont');
-  if (!contentCont) {
-    activate_page_align();
-    increase_padding()
-  } else {
-    var cur_padding_val = getComputedStyle(contentCont, null).getPropertyValue('padding-left');
-    var cur_padding_val_num = parseInt(cur_padding_val);
-    var new_padding_val = cur_padding_val_num + 50 + 'px';
-
-    contentCont.style.paddingLeft = new_padding_val;
-    contentCont.style.paddingRight = new_padding_val;
-    // This is needed because of a bug with Chrome not re-rendering css immediately.
-    document.getElementsByTagName('body')[0].focus();
-  }
-}
-
-
-function decrease_padding() {
-  /**/
-  var contentCont = document.getElementById('resultTargetSystemCont');
-
-  if (!contentCont)
-    return;
-
-  var cur_padding_val = getComputedStyle(contentCont, null).getPropertyValue('padding-left');
-  var cur_padding_val_num = parseInt(cur_padding_val);
-
-  if (cur_padding_val_num >= 50) {
-    var new_padding_val = cur_padding_val_num - 50 + 'px';
-    contentCont.style.paddingLeft = new_padding_val;
-    contentCont.style.paddingRight = new_padding_val;
-    // This is needed because of a bug with Chrome not re-rendering css immediately.
-    document.getElementsByTagName('body')[0].focus();
-  } else {
-    deactivate_page_align();
-  }
-}
 
 chrome.runtime.onMessage.addListener(
   /*
-   Listen to extension menu actions.
-   */
+    Listen to extension menu actions.
+    */
   function (request) {
     if (request.changePadding === "increase") {
-      increase_padding();
-    }
-    else if (request.changePadding === "decrease") {
-      decrease_padding();
+      return increasePadding();
+    } else if (request.changePadding === "decrease") {
+      decreasePadding();
     }
   });
 

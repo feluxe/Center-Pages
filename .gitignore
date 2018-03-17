@@ -1,6 +1,7 @@
 
 INFO.fmw.md
 .idea/
+.vscode
+.history
 dist/
 design/
-venv-page-aligner/
