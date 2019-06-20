@@ -1,4 +1,4 @@
-# Center-Pages Chrome Extension
+# Center-Pages Browser Extension
 
 <img src="page_aligner_animation.gif" alt="animated gif" />
 
