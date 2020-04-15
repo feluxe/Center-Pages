@@ -43,7 +43,6 @@ chrome.runtime.onMessage.addListener(
     Listen to extension menu actions.
    */
   function (request, sender, sendResponse) {
-    console.log('s', sender);
     if (request.query) {
       sendResponse(query());
     } else if (request.changePadding === "increase") {
