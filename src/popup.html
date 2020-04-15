@@ -1,11 +1,13 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Page Aligner</title>
     <script src="popup.js"></script>
     <style>
         body {
             width: 90px;
+            text-align: center;
         }
 
         button {
@@ -13,10 +15,36 @@
             width: 40px;
             height: 40px;
         }
+
+        input[type='radio'] {
+            display: none;
+        }
+
+        input[type='radio']:checked + label {
+            background-color: lightgreen;
+        }
+
+        input[type='radio'] + label {
+            display: inline-block;
+            background-color: lightgrey;
+            width: 20px;
+            cursor: pointer;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
 <button id="centerPagesIncrease">+</button>
 <button id="centerPagesDecrease">-</button>
+<br>
+<br>
+<div>
+    <input type="radio" id="alignLeft" name="centerPagesAlign" value="left">
+    <label for="alignLeft">L</label>
+    <input type="radio" id="alignCenter" name="centerPagesAlign" value="Left">
+    <label for="alignCenter">C</label>
+    <input type="radio" id="alignRight" name="centerPagesAlign" value="right">
+    <label for="alignRight">R</label>
+</div>
 </body>
 </html>
