@@ -1,104 +1,160 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Page Aligner</title>
     <script src="popup.js"></script>
     <style>
-        body {
-            width: 100px;
-            text-align: center;
-        }
+      html {
+        background-color: #fbfbfb;
+        padding: 0;
+        margin: 0;
+      }
 
-        button {
-            border: 0;
-            background: none;
-            box-shadow: none;
-            border-radius: 5px;
-            padding: 0;
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-        }
+      body {
+        border: 0;
+        text-align: center;
+        width: 130px;
+        height: 100px;
+        margin: 0;
+        padding: 10px 0;
+        overflow: hidden;
+      }
 
-        button:hover {
-            box-shadow: inset 0px 0px 5px 0px gray;
-        }
+      hr {
+        width: 80%;
+        border: 0;
+        border-top: 1px solid #ccc;
+      }
 
-        input[type='radio'] {
-            display: none;
-        }
+      button {
+        border: 0;
+        background: none;
+        box-shadow: none;
+        border-radius: 5px;
+        padding: 0;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
 
-        input[type='radio']:checked + label, input[type='radio']:hover + label {
-            box-shadow: inset 0px 0px 5px 0px gray;
-        }
+      button:hover {
+        box-shadow: inset 0px 0px 5px 0px gray;
+        border: 0;
+      }
 
-        input[type='radio'] + label {
-            display: inline-block;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+      *,
+      *:focus,
+      *:hover {
+        outline: none;
+      }
 
-        label svg {
-            width: 30px;
-            height: 36px;
-        }
+      input[type="radio"] {
+        display: none;
+      }
 
-        .align-container, label {
-            height: 36px;
-        }
+      input[type="radio"]:checked + label,
+      input[type="radio"]:hover + label {
+        box-shadow: inset 0px 0px 5px 0px gray;
+      }
+
+      input[type="radio"] + label {
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      label svg {
+        width: 30px;
+        height: 36px;
+      }
+
+      .align-container,
+      label {
+        height: 36px;
+      }
     </style>
-</head>
-<body>
-<div>
-    <button id="centerPagesIncrease" title="Increase spacing">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <rect x="20" y="40" width="60" height="20" fill="grey" />
-            <rect x="40" y="20" width="20" height="60" fill="grey" />
+  </head>
+  <body>
+    <div>
+      <button id="centerPagesIncrease" title="Increase spacing">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+        >
+          <rect x="20" y="42.5" width="60" height="15" fill="grey" />
+          <rect x="42.5" y="20" width="15" height="60" fill="grey" />
         </svg>
-    </button>
-    <button id="centerPagesDecrease" title="Decrease spacing">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <rect x="20" y="40" width="60" height="20" fill="grey" />
+      </button>
+      <button id="centerPagesDecrease" title="Decrease spacing">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+        >
+          <rect x="20" y="40" width="60" height="15" fill="grey" />
         </svg>
-    </button>
-</div>
-<hr>
-<div class="align-container">
-    <input type="radio" id="alignLeft" name="centerPagesAlign" value="left">
-    <label for="alignLeft" title="Left align">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
-            <rect x="20" y="20" width="60" height="5" fill="black" />
-            <rect x="20" y="35" width="40" height="5" fill="black" />
-            <rect x="20" y="50" width="60" height="5" fill="black" />
-            <rect x="20" y="65" width="40" height="5" fill="black" />
-            <rect x="20" y="80" width="60" height="5" fill="black" />
-            <rect x="20" y="95" width="40" height="5" fill="black" />
+      </button>
+    </div>
+    <hr />
+    <div class="align-container">
+      <input type="radio" id="alignLeft" name="centerPagesAlign" value="left" />
+      <label for="alignLeft" title="Left align">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 120"
+        >
+          <rect x="20" y="20" width="60" height="5" fill="black" />
+          <rect x="20" y="35" width="40" height="5" fill="black" />
+          <rect x="20" y="50" width="60" height="5" fill="black" />
+          <rect x="20" y="65" width="40" height="5" fill="black" />
+          <rect x="20" y="80" width="60" height="5" fill="black" />
+          <rect x="20" y="95" width="40" height="5" fill="black" />
         </svg>
-    </label>
-    <input type="radio" id="alignCenter" name="centerPagesAlign" value="Left">
-    <label for="alignCenter" title="Center align">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
-            <rect x="20" y="20" width="60" height="5" fill="black" />
-            <rect x="30" y="35" width="40" height="5" fill="black" />
-            <rect x="20" y="50" width="60" height="5" fill="black" />
-            <rect x="30" y="65" width="40" height="5" fill="black" />
-            <rect x="20" y="80" width="60" height="5" fill="black" />
-            <rect x="30" y="95" width="40" height="5" fill="black" />
+      </label>
+      <input
+        type="radio"
+        id="alignCenter"
+        name="centerPagesAlign"
+        value="Left"
+      />
+      <label for="alignCenter" title="Center align">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 120"
+        >
+          <rect x="20" y="20" width="60" height="5" fill="black" />
+          <rect x="30" y="35" width="40" height="5" fill="black" />
+          <rect x="20" y="50" width="60" height="5" fill="black" />
+          <rect x="30" y="65" width="40" height="5" fill="black" />
+          <rect x="20" y="80" width="60" height="5" fill="black" />
+          <rect x="30" y="95" width="40" height="5" fill="black" />
         </svg>
-    </label>
-    <input type="radio" id="alignRight" name="centerPagesAlign" value="right">
-    <label for="alignRight" title="Right align">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
-            <rect x="20" y="20" width="60" height="5" fill="black" />
-            <rect x="40" y="35" width="40" height="5" fill="black" />
-            <rect x="20" y="50" width="60" height="5" fill="black" />
-            <rect x="40" y="65" width="40" height="5" fill="black" />
-            <rect x="20" y="80" width="60" height="5" fill="black" />
-            <rect x="40" y="95" width="40" height="5" fill="black" />
+      </label>
+      <input
+        type="radio"
+        id="alignRight"
+        name="centerPagesAlign"
+        value="right"
+      />
+      <label for="alignRight" title="Right align">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 120"
+        >
+          <rect x="20" y="20" width="60" height="5" fill="black" />
+          <rect x="40" y="35" width="40" height="5" fill="black" />
+          <rect x="20" y="50" width="60" height="5" fill="black" />
+          <rect x="40" y="65" width="40" height="5" fill="black" />
+          <rect x="20" y="80" width="60" height="5" fill="black" />
+          <rect x="40" y="95" width="40" height="5" fill="black" />
         </svg>
-    </label>
-</div>
-</body>
+      </label>
+    </div>
+  </body>
 </html>
